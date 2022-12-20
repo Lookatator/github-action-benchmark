@@ -21,7 +21,15 @@ jobs:
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          tool: 'go'
-          output-file-path: examples/go/output.txt
+          name: Python Benchmark with pytest-benchmark
+          tool: 'pytest'
+          # Where the output from the benchmark tool is stored
+          output-file-path: examples/pytest/output.json
+          # Where the previous data file is stored
           external-data-json-path: ./cache/benchmark-data.json
+          # Show alert with commit comment on detecting possible performance regression
+          alert-threshold: '200%'
+          comment-on-alert: true
+          # Workflow will fail when an alert happens
           fail-on-alert: true
+          alert-comment-cc-users: '@ktrz'
