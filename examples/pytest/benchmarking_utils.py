@@ -14,7 +14,7 @@ class NameWrapper:
     def __str__(self):
         name = (self.target.__module__ + " :: ") if hasattr(self.target, '__module__') else ""
         name += self.target.__name__ if hasattr(self.target, '__name__') else repr(self.target)
-        name += (" :: " + self.name_extra) if self.name_extra is not None else ""
+        name += (" :: " + self.name_extra) if self.name_extra else ""
         return name
 
     def __repr__(self):
@@ -70,35 +70,38 @@ class Benchmarker:
                         self.path)
 
     @classmethod
-    def add_name_component(cls, name_component, name=None):
-        if name is None:
-            name = ""
-        name += f" :: {name_component}"
-        return name
+    def add_name_component(cls, name_extra, name_component):
+        if not name_extra:
+            new_name = name_component
+        elif not name_component:
+            new_name = name_extra
+        else:
+            new_name = f"{name_extra} :: {name_component}"
+        return new_name
 
     def add_timing(self, func, timing, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_component="Timing", name=name_extra)
+            name_extra = self.add_name_component(name_extra=name_extra, name_component="Timing")
         self.log(func, -1. * timing, unit="(-1 * Seconds)", name_extra=name_extra)
 
     def add_qd_score(self, func, qd_score, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_component=name_extra, name="QD Score")
+            name_extra = self.add_name_component(name_extra=name_extra, name_component="QD Score")
         self.log(func, qd_score, unit="(QD Score)", name_extra=name_extra)
 
     def add_max_fitness(self, func, max_fitness, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_component=name_extra, name="Max Fitness")
+            name_extra = self.add_name_component(name_extra=name_extra, name_component="Max Fitness")
         self.log(func, max_fitness, unit="(Max Fitness)", name_extra=name_extra)
 
     def add_coverage(self, func, coverage, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_component=name_extra, name="Coverage")
+            name_extra = self.add_name_component(name_extra=name_extra, name_component="Coverage")
         self.log(func, coverage, unit="(Coverage)", name_extra=name_extra)
 
     def add_return_policy(self, func, return_policy, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_component=name_extra, name="Return Policy")
+            name_extra = self.add_name_component(name_extra=name_extra, name_component="Return Policy")
         self.log(func, return_policy, unit="(Return)", name_extra=name_extra)
 
     def log_data_qdax(self,
