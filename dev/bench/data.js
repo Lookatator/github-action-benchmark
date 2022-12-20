@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671550400983,
+  "lastUpdate": 1671550684702,
   "repoUrl": "https://github.com/Lookatator/github-action-benchmark",
   "entries": {
     "Python Benchmark with pytest-benchmark": [
@@ -67,6 +67,40 @@ window.BENCHMARK_DATA = {
           {
             "name": "bench.py::test_fib_20",
             "value": "2.6226043701171875e-05",
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "luca.grillotti@gmail.com",
+            "name": "Luca Grillotti",
+            "username": "Lookatator"
+          },
+          "committer": {
+            "email": "luca.grillotti@gmail.com",
+            "name": "Luca Grillotti",
+            "username": "Lookatator"
+          },
+          "distinct": true,
+          "id": "104cc6b36bf30237ff8e4c0b92866028572aa48d",
+          "message": "empty commit",
+          "timestamp": "2022-12-20T16:37:37+01:00",
+          "tree_id": "83de968ba22f052a0462da21546b4246ad591682",
+          "url": "https://github.com/Lookatator/github-action-benchmark/commit/104cc6b36bf30237ff8e4c0b92866028572aa48d"
+        },
+        "date": 1671550681885,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "bench.py::test_fib_10",
+            "value": "2.5272369384765625e-05",
+            "unit": "seconds"
+          },
+          {
+            "name": "bench.py::test_fib_20",
+            "value": "2.2411346435546875e-05",
             "unit": "seconds"
           }
         ]
