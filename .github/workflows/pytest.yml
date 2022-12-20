@@ -38,12 +38,12 @@ jobs:
 #          fail-on-alert: true
 #          alert-comment-cc-users: '@ktrz'
 
-      - name: Store benchmark result - Timing
+      - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          name: Python Benchmark with pytest-benchmark
+          name: QDax Benchmark
           tool: 'customSmallerIsBetter'
-          output-file-path: examples/pytest/timing.json
+          output-file-path: examples/pytest/output.json
           # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
@@ -54,16 +54,3 @@ jobs:
           alert-comment-cc-users: '@Lookatator'
           gh-repository: 'github.com/Lookatator/github-action-benchmark-results'
 
-      - name: Store benchmark result - QD Score
-        uses: benchmark-action/github-action-benchmark@v1
-        with:
-          name: Python Benchmark with pytest-benchmark
-          tool: 'customBiggerIsBetter'
-          output-file-path: examples/pytest/qd_score.json
-          github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
-          auto-push: true
-          alert-threshold: '150%'
-          comment-on-alert: true
-          fail-on-alert: true
-          alert-comment-cc-users: '@Lookatator'
-          gh-repository: 'github.com/Lookatator/github-action-benchmark-results'

@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from benchmarking_utils import log_data_qd_algorithm
+from benchmarking_utils import Benchmarker
 from fib import fib
 import pytest
 import time
@@ -14,7 +14,7 @@ def test_fib_10():
     res = fib(10)
     end = time.time()
 
-    log_data_qd_algorithm(
+    Benchmarker.default().log_data_qdax(
         func=test_fib_10,
         timing=end - start,
         qd_score=res,
@@ -25,8 +25,8 @@ def test_fib_20():
     start = time.time()
     res = fib(10)
     end = time.time()
-    log_data_qd_algorithm(
-        func=test_fib_20,
+    Benchmarker.default().log_data_qdax(
+        func=test_fib_10,
         timing=end - start,
         qd_score=res,
     )
