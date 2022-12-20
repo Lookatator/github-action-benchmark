@@ -41,7 +41,7 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1
         with:
           name: Python Benchmark with pytest-benchmark
-          tool: 'customHigherIsBetter'
+          tool: 'customBiggerIsBetter'
           # Where the output from the benchmark tool is stored
           output-file-path: examples/pytest/qd_score.json
           # Where the previous data file is stored

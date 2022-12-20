@@ -58,7 +58,7 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1
         with:
           name: Python Benchmark with pytest-benchmark
-          tool: 'customHigherIsBetter'
+          tool: 'customBiggerIsBetter'
           output-file-path: examples/pytest/qd_score.json
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
