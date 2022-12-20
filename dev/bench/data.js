@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671545859517,
+  "lastUpdate": 1671546826866,
   "entries": {
     "Rust Benchmark": [
       {
@@ -32035,6 +32035,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00001014196858091262",
             "extra": "mean: 2.3044300392607937 msec\nrounds: 433"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "luca.grillotti@gmail.com",
+            "name": "Luca Grillotti",
+            "username": "Lookatator"
+          },
+          "committer": {
+            "email": "luca.grillotti@gmail.com",
+            "name": "Luca Grillotti",
+            "username": "Lookatator"
+          },
+          "distinct": true,
+          "id": "dea1a6f3acbb5329a092b282e1f8604aaca53731",
+          "message": "fix minimal",
+          "timestamp": "2022-12-20T15:33:19+01:00",
+          "tree_id": "8e2eb404546619ded093d34586805e22cada7747",
+          "url": "https://github.com/Lookatator/github-action-benchmark/commit/dea1a6f3acbb5329a092b282e1f8604aaca53731"
+        },
+        "date": 1671546824619,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "bench.py::test_fib_10",
+            "value": 57977.670125223995,
+            "unit": "iter/sec",
+            "range": "stddev: 4.443842920545375e-7",
+            "extra": "mean: 17.248019760713632 usec\nrounds: 39371"
+          },
+          {
+            "name": "bench.py::test_fib_20",
+            "value": 468.1448955047932,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00001343337979135649",
+            "extra": "mean: 2.136090790697858 msec\nrounds: 473"
           }
         ]
       }
