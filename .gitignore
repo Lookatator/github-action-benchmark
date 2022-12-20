@@ -14,4 +14,6 @@ target/
 jmh-result.json
 
 venv/
-logs.json
+*.json
+
+__pycache__/
