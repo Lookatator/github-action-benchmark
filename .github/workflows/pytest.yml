@@ -23,27 +23,27 @@ jobs:
           pip install -r requirements.txt
           pytest bench.py
 
-      - name: Store benchmark result
-        uses: benchmark-action/github-action-benchmark@v1
-        with:
-          name: Python Benchmark with pytest-benchmark
-          tool: 'customSmallerIsBetter'
-          output-file-path: examples/pytest/logs.json
-          # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          auto-push: true
-          # Show alert with commit comment on detecting possible performance regression
-          alert-threshold: '200%'
-          comment-on-alert: true
-          fail-on-alert: true
-          alert-comment-cc-users: '@ktrz'
+#      - name: Store benchmark result
+#        uses: benchmark-action/github-action-benchmark@v1
+#        with:
+#          name: Python Benchmark with pytest-benchmark
+#          tool: 'customSmallerIsBetter'
+#          output-file-path: examples/pytest/logs.json
+#          # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          auto-push: true
+#          # Show alert with commit comment on detecting possible performance regression
+#          alert-threshold: '200%'
+#          comment-on-alert: true
+#          fail-on-alert: true
+#          alert-comment-cc-users: '@ktrz'
 
       - name: Store benchmark result - separate results repo
         uses: benchmark-action/github-action-benchmark@v1
         with:
           name: Python Benchmark with pytest-benchmark
           tool: 'customSmallerIsBetter'
-          output-file-path: examples/pytest/logs.json
+          output-file-path: examples/pytest/timing.json
           # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
@@ -51,5 +51,19 @@ jobs:
           alert-threshold: '200%'
           comment-on-alert: true
           fail-on-alert: true
-          alert-comment-cc-users: '@ktrz'
+          alert-comment-cc-users: '@Lookatator'
+          gh-repository: 'github.com/Lookatator/github-action-benchmark-results'
+
+      - name: Store benchmark result - separate results repo
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Python Benchmark with pytest-benchmark
+          tool: 'customHigherIsBetter'
+          output-file-path: examples/pytest/qd_score.json
+          github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
+          auto-push: true
+          alert-threshold: '200%'
+          comment-on-alert: true
+          fail-on-alert: true
+          alert-comment-cc-users: '@Lookatator'
           gh-repository: 'github.com/Lookatator/github-action-benchmark-results'
