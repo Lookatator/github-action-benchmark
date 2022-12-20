@@ -11,7 +11,7 @@ NAME_FILE = "logs.json"
 def test_fib_10():
 
     start = time.time()
-    res = fib(10) / 3.
+    res = fib(10)
     end = time.time()
 
     Benchmarker.default().log_data_qdax(
@@ -23,7 +23,7 @@ def test_fib_10():
 
 def test_fib_20():
     start = time.time()
-    res = fib(10)
+    res = fib(20)
     end = time.time()
     Benchmarker.default().log_data_qdax(
         func=test_fib_20,
