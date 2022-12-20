@@ -78,27 +78,27 @@ class Benchmarker:
 
     def add_timing(self, func, timing, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_extra, "Timing")
+            name_extra = self.add_name_component(name_component="Timing", name=name_extra)
         self.log(func, -1. * timing, unit="(-1 * Seconds)", name_extra=name_extra)
 
     def add_qd_score(self, func, qd_score, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_extra, "QD Score")
+            name_extra = self.add_name_component(name_component=name_extra, name="QD Score")
         self.log(func, qd_score, unit="(QD Score)", name_extra=name_extra)
 
     def add_max_fitness(self, func, max_fitness, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_extra, "Max Fitness")
+            name_extra = self.add_name_component(name_component=name_extra, name="Max Fitness")
         self.log(func, max_fitness, unit="(Max Fitness)", name_extra=name_extra)
 
     def add_coverage(self, func, coverage, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_extra, "Coverage")
+            name_extra = self.add_name_component(name_component=name_extra, name="Coverage")
         self.log(func, coverage, unit="(Coverage)", name_extra=name_extra)
 
     def add_return_policy(self, func, return_policy, name_extra=None):
         if name_extra is None:
-            name_extra = self.add_name_component(name_extra, "Return Policy")
+            name_extra = self.add_name_component(name_component=name_extra, name="Return Policy")
         self.log(func, return_policy, unit="(Return)", name_extra=name_extra)
 
 
