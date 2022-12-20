@@ -4,10 +4,6 @@ on:
     branches:
       - master
 
-permissions:
-  contents: write
-  deployments: write
-
 jobs:
   benchmark:
     name: Run minimal steps to run github-action-benchmark
