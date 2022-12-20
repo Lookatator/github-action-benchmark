@@ -12,3 +12,6 @@
 /.idea
 target/
 jmh-result.json
+
+venv/
+logs.json

@@ -17,7 +17,7 @@ jobs:
         run: |
           cd examples/pytest
           pip install -r requirements.txt
-          pytest bench.py --benchmark-json output.json
+          pytest bench.py
       - name: Download previous benchmark data
         uses: actions/cache@v1
         with:
@@ -27,9 +27,9 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1
         with:
           name: Python Benchmark with pytest-benchmark
-          tool: 'pytest'
+          tool: 'customSmallerIsBetter'
           # Where the output from the benchmark tool is stored
-          output-file-path: examples/pytest/output.json
+          output-file-path: examples/pytest/logs.json
           # Where the previous data file is stored
           external-data-json-path: ./cache/benchmark-data.json
           # Show alert with commit comment on detecting possible performance regression
