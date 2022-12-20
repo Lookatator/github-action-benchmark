@@ -26,7 +26,7 @@ def test_fib_20():
     res = fib(10)
     end = time.time()
     Benchmarker.default().log_data_qdax(
-        func=test_fib_10,
+        func=test_fib_20,
         timing=end - start,
         qd_score=res,
     )
