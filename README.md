@@ -632,4 +632,3 @@ Every release will appear on your GitHub notifications page.
 [benchmarkdotnet]: https://benchmarkdotnet.org
 [benchmarkdotnet-badge]: https://github.com/rhysd/github-action-benchmark/workflows/Benchmark.Net%20Example/badge.svg
 [benchmarkdotnet-workflow-example]: https://github.com/rhysd/github-action-benchmark/actions?query=workflow%3A%22Benchmark.Net+Example%22
-
