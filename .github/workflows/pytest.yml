@@ -38,7 +38,7 @@ jobs:
 #          fail-on-alert: true
 #          alert-comment-cc-users: '@ktrz'
 
-      - name: Store benchmark result - separate results repo
+      - name: Store benchmark result - Timing
         uses: benchmark-action/github-action-benchmark@v1
         with:
           name: Python Benchmark with pytest-benchmark
@@ -48,13 +48,13 @@ jobs:
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
           # Show alert with commit comment on detecting possible performance regression
-          alert-threshold: '200%'
+          alert-threshold: '150%'
           comment-on-alert: true
           fail-on-alert: true
           alert-comment-cc-users: '@Lookatator'
           gh-repository: 'github.com/Lookatator/github-action-benchmark-results'
 
-      - name: Store benchmark result - separate results repo
+      - name: Store benchmark result - QD Score
         uses: benchmark-action/github-action-benchmark@v1
         with:
           name: Python Benchmark with pytest-benchmark
@@ -62,7 +62,7 @@ jobs:
           output-file-path: examples/pytest/qd_score.json
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
-          alert-threshold: '200%'
+          alert-threshold: '150%'
           comment-on-alert: true
           fail-on-alert: true
           alert-comment-cc-users: '@Lookatator'
