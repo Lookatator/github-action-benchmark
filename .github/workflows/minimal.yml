@@ -23,31 +23,17 @@ jobs:
         with:
           path: ./cache
           key: ${{ runner.os }}-benchmark
-      - name: Store benchmark result - Timing
+      - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          name: Python Benchmark with pytest-benchmark
-          tool: 'customSmallerIsBetter'
-          # Where the output from the benchmark tool is stored
-          output-file-path: examples/pytest/timing.json
-          # Where the previous data file is stored
-          external-data-json-path: ./cache/benchmark-data-timing.json
-          # Show alert with commit comment on detecting possible performance regression
-          alert-threshold: '150%'
-          # Workflow will fail when an alert happens
-          fail-on-alert: true
-          alert-comment-cc-users: '@Lookatator'
-      - name: Store benchmark result - QD Score
-        uses: benchmark-action/github-action-benchmark@v1
-        with:
-          name: Python Benchmark with pytest-benchmark
+          name: QDax Benchmark
           tool: 'customBiggerIsBetter'
           # Where the output from the benchmark tool is stored
-          output-file-path: examples/pytest/qd_score.json
+          output-file-path: examples/pytest/output.json
           # Where the previous data file is stored
-          external-data-json-path: ./cache/benchmark-data-qd-score.json
+          external-data-json-path: ./cache/benchmark-data.json
           # Show alert with commit comment on detecting possible performance regression
-          alert-threshold: '150%'
+          alert-threshold: '70%'
           # Workflow will fail when an alert happens
           fail-on-alert: true
           alert-comment-cc-users: '@Lookatator'

@@ -12,9 +12,9 @@ class NameWrapper:
         self.name_extra = name_extra
 
     def __str__(self):
-        name = (self.target.__module__ + "::") if hasattr(self.target, '__module__') else ""
+        name = (self.target.__module__ + " :: ") if hasattr(self.target, '__module__') else ""
         name += self.target.__name__ if hasattr(self.target, '__name__') else repr(self.target)
-        name += ("::" + self.name_extra) if self.name_extra is not None else ""
+        name += (" :: " + self.name_extra) if self.name_extra is not None else ""
         return name
 
     def __repr__(self):
@@ -70,7 +70,7 @@ class Benchmarker:
                         self.path)
 
     @classmethod
-    def add_name_component(self, name_component, name=None):
+    def add_name_component(cls, name_component, name=None):
         if name is None:
             name = ""
         name += f" :: {name_component}"
@@ -100,8 +100,6 @@ class Benchmarker:
         if name_extra is None:
             name_extra = self.add_name_component(name_component=name_extra, name="Return Policy")
         self.log(func, return_policy, unit="(Return)", name_extra=name_extra)
-
-
 
     def log_data_qdax(self,
                       func,

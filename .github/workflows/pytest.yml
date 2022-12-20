@@ -47,8 +47,9 @@ jobs:
           # Use personal access token instead of GITHUB_TOKEN due to https://github.community/t/github-action-not-triggering-gh-pages-upon-push/16096
           github-token: ${{ secrets.BENCHMARK_ACTION_BOT_TOKEN }}
           auto-push: true
+          max-items-in-chart: 20
           # Show alert with commit comment on detecting possible performance regression
-          alert-threshold: '150%'
+          alert-threshold: '70%'
           comment-on-alert: true
           fail-on-alert: true
           alert-comment-cc-users: '@Lookatator'
